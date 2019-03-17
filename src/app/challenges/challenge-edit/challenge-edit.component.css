@@ -1,0 +1,13 @@
+/* Add mobile styles for the component here.  */
+.text-input{
+    width: 66%;
+    border-width: 1;
+    border-radius: 10%;
+    border-color: rgb(164, 209, 224);
+    text-align: center;
+    margin-top: 5;
+}
+
+Button{
+    width: 33%;
+}
