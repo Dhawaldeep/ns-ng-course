@@ -1,7 +1,5 @@
-<ScrollView>
-    <StackLayout>
-        <Label class="title"
-        *ngFor="let currentChallenge of currentChallenges"    
-        [text]="currentChallenge"></Label>
-    </StackLayout>
-</ScrollView>
+<StackLayout>
+    <Label class="title" 
+    [text]="currentChallenge"></Label>
+    <Button text="Edit" (tap)="onEdit()"></Button>
+</StackLayout>

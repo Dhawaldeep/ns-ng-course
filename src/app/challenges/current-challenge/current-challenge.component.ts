@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { RouterExtensions } from "nativescript-angular/router";
 
 
 @Component({
@@ -8,5 +9,12 @@ import { Component, Input } from "@angular/core";
     styleUrls: ["./current-challenge.component.css"]
 })
 export class CurrentChallengeComponent{
-    @Input() currentChallenges:string[] =[]    
+    @Input() currentChallenge: string = "The Current Challenge";   
+
+    constructor(private router: RouterExtensions){
+
+    }
+    onEdit(){
+        this.router.navigate(["/challenge-edit"])
+    }
 }
