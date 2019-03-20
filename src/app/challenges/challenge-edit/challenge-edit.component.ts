@@ -1,5 +1,5 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { RouterExtensions } from 'nativescript-angular/router';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { RouterExtensions, PageRoute } from 'nativescript-angular/router';
 
 @Component({
   selector: 'ns-challenge-edit',
@@ -7,11 +7,26 @@ import { RouterExtensions } from 'nativescript-angular/router';
   styleUrls: ['./challenge-edit.component.css'],
   moduleId: module.id,
 })
-export class ChallengeEditComponent{
+export class ChallengeEditComponent implements OnInit{
   @Output() input = new EventEmitter<string>()
   challengeDescription = "This is a challenge description";
 
-  constructor(private router: RouterExtensions){}
+  isCreating: boolean = true;
+
+  constructor(private pageRoute: PageRoute){}
+
+  ngOnInit(){
+    this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
+      activatedRoute.paramMap.subscribe(paramMap=>{
+        if(!paramMap.has('mode')){
+          this.isCreating = true
+        }else{
+          console.log(paramMap.get('mode'))
+          this.isCreating = paramMap.get('mode') !== 'edit'
+        }
+      })
+    })
+  }
 
   onAddChallenge(){
     this.input.emit(this.challengeDescription)

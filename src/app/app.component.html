@@ -2,5 +2,11 @@
     <ns-challenge-edit (input)="addChallenge($event)"></ns-challenge-edit>
     <ns-current-challenge [currentChallenge] = "enteredChallenge"></ns-current-challenge>
 </StackLayout> -->
-
-<page-router-outlet></page-router-outlet>
+<RadSideDrawer>
+    <FlexboxLayout tkDrawerContent class="drawer-container">
+        <Button text="LogOut" (tap)="onLogOut()" class="btn"></Button>
+    </FlexboxLayout>
+    <StackLayout tkMainContent>
+        <page-router-outlet></page-router-outlet>
+    </StackLayout>
+</RadSideDrawer>

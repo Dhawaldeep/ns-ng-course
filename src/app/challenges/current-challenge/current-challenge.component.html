@@ -1,5 +1,11 @@
+<ns-action-bar [title]="'Current Challenge'">
+    <!-- <ActionItems>
+
+    </ActionItems> -->
+</ns-action-bar>
 <StackLayout>
     <Label class="title" 
     [text]="currentChallenge"></Label>
     <Button text="Edit" (tap)="onEdit()"></Button>
+    <Button text="Replace" (tap)="onReplace()"></Button>
 </StackLayout>

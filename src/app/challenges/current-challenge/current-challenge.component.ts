@@ -15,6 +15,11 @@ export class CurrentChallengeComponent{
 
     }
     onEdit(){
-        this.router.navigate(["/challenge-edit"])
+        this.router.navigate(["/challenges/edit"], {transition: {name: "slideLeft"}})
     }
+
+    onReplace(){
+        this.router.navigate(["/challenges/replace"], {transition: {name: "slideLeft"}})
+    }
+
 }

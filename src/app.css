@@ -11,7 +11,7 @@ refer to http://docs.nativescript.org/ui/theme.
 */
 @import '~nativescript-theme-core/css/core.light.css';
 .btn{
-    background: rgb(41, 66, 95);
+    background: #29425f;
     border-width: 1;
     border-color: rgb(41, 66, 95);
     border-radius: 30%;
@@ -19,4 +19,17 @@ refer to http://docs.nativescript.org/ui/theme.
     width: 100%;
     margin: 5 0;
     color: white;
+}
+.title{
+    font-size: 26;
+    text-align: center;
+    color: rgb(41, 66, 95);
+    font-weight: bold;
+}
+.drawer-container{
+    background: linear-gradient(140deg, rgb(73, 73, 105), black);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20;
 }

@@ -6,10 +6,13 @@ import { CurrentChallengeComponent } from "./challenges/current-challenge/curren
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives"
 import { ChallengeEditComponent } from './challenges/challenge-edit/challenge-edit.component';
 import { TodayComponent } from './challenges/today/today.component';
 import { AuthComponent } from './auth/auth.component';
 import { AppRoutingModule } from "./app-routing.module";
+import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component';
+import { ChallengeTabsComponent } from './challenges/challenge-tabs/challenge-tabs.component';
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 // import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
@@ -21,6 +24,7 @@ import { AppRoutingModule } from "./app-routing.module";
     imports: [
         NativeScriptModule,
         NativeScriptFormsModule,
+        NativeScriptUISideDrawerModule,
         AppRoutingModule
     ],
     declarations: [
@@ -28,7 +32,9 @@ import { AppRoutingModule } from "./app-routing.module";
         CurrentChallengeComponent,
         ChallengeEditComponent,
         TodayComponent,
-        AuthComponent
+        AuthComponent,
+        ActionBarComponent,
+        ChallengeTabsComponent
     ],
     providers: [],
     schemas: [

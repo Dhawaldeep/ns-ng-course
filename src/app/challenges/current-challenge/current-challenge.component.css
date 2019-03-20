@@ -1,9 +1,3 @@
 StackLayout{
     height: 100%;
 }
-.title{
-    font-size: 26;
-    text-align: center;
-    color: rgb(41, 66, 95);
-    font-weight: bold;
-}
