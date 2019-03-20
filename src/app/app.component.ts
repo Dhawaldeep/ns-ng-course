@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit, ChangeDetectorRef } from "@angular/core";
+import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit, ChangeDetectorRef, ViewContainerRef } from "@angular/core";
 import { UIService } from "./shared/ui/ui.service";
 import { Subscription } from "rxjs";
 import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private drawerSub: Subscription;
     private drawer: RadSideDrawer
 
-    constructor(private uiService: UIService, private changeDetector: ChangeDetectorRef, private router: RouterExtensions){}
+    constructor(private uiService: UIService, private changeDetector: ChangeDetectorRef, private router: RouterExtensions, private vCRef: ViewContainerRef){}
 
     ngOnInit(){
         this.drawerSub = this.uiService.drawerState.subscribe(()=>{
@@ -25,6 +25,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.drawer.toggleDrawerState()
             }
         })
+        this.uiService.setVCRef(this.vCRef)
     }
 
     ngAfterViewInit(){

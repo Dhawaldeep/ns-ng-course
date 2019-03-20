@@ -1,11 +1,13 @@
 <ns-action-bar [title]="'Current Challenge'">
-    <!-- <ActionItems>
-
-    </ActionItems> -->
+    <ActionItem ios.position="right" android.position="actionBar">
+        <Label text="Edit" (tap)="onEdit()"></Label>
+    </ActionItem>
+    <ActionItem ios.position="right" android.position="actionBar">
+        <Label text="Replace" (tap)="onReplace()"></Label>
+    </ActionItem>
 </ns-action-bar>
 <StackLayout>
     <Label class="title" 
     [text]="currentChallenge"></Label>
-    <Button text="Edit" (tap)="onEdit()"></Button>
-    <Button text="Replace" (tap)="onReplace()"></Button>
+    <Button text="Open" class="btn" (tap)="onChangeStatus()"></Button>
 </StackLayout>

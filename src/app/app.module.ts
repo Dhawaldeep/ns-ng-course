@@ -13,6 +13,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component';
 import { ChallengeTabsComponent } from './challenges/challenge-tabs/challenge-tabs.component';
+import { DayModalComponent } from './challenges/day-modal/day-modal.component';
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 // import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
@@ -34,9 +35,11 @@ import { ChallengeTabsComponent } from './challenges/challenge-tabs/challenge-ta
         TodayComponent,
         AuthComponent,
         ActionBarComponent,
-        ChallengeTabsComponent
+        ChallengeTabsComponent,
+        DayModalComponent
     ],
     providers: [],
+    entryComponents: [DayModalComponent],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

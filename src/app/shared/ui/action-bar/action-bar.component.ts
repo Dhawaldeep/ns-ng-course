@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { isAndroid } from 'tns-core-modules/platform';
 import { Page } from "tns-core-modules/ui/page";
 import { RouterExtensions } from 'nativescript-angular/router';
@@ -12,7 +12,7 @@ declare var android: any;
   styleUrls: ['./action-bar.component.css'],
   moduleId: module.id,
 })
-export class ActionBarComponent implements OnInit {
+export class ActionBarComponent implements OnInit, AfterViewInit {
   @Input() title: string;
   @Input() showBackButton: boolean = true
   @Input() hasMenu: boolean = true
@@ -20,6 +20,11 @@ export class ActionBarComponent implements OnInit {
   constructor(private page: Page, private router: RouterExtensions, private uiService: UIService) { }
 
   ngOnInit() {
+    console.log(this.title)
+  }
+
+  ngAfterViewInit(){
+    console.log(this.title)
   }
 
   get canGoBack() {
