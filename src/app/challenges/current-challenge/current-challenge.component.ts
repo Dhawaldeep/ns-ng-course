@@ -28,6 +28,12 @@ export class CurrentChallengeComponent{
     }
 
     onChangeStatus(){
-        this.modalDialog.showModal(DayModalComponent, {fullscreen: true, viewContainerRef: this.uIService.getVCRef()?this.uIService.getVCRef(): this.vcRef})
+        this.modalDialog.showModal(DayModalComponent, {
+            fullscreen: true, 
+            viewContainerRef: this.uIService.getVCRef()?this.uIService.getVCRef(): this.vcRef,
+            context: { date: new Date()}
+        }).then(action=>{
+            console.log(action)
+        })
     }
 }
