@@ -1,0 +1,43 @@
+// @import '~nativescript-theme-core/css/aqua.css';
+@import '~nativescript-theme-core/scss/light';
+
+@import 'app-variables';
+
+@import '~nativescript-theme-core/scss/index';
+
+// .btn{
+//     background: #29425f;
+//     border-width: 1;
+//     border-color: rgb(41, 66, 95);
+//     border-radius: 30%;
+//     padding: 5 10;
+//     width: 100%;
+//     margin: 5 0;
+//     color: white;
+// }
+
+ActionBar{
+    background: $primary;
+    color: white;
+}
+.btn-failure{
+    background: $failure;
+    color: white;
+}
+.btn-success{
+    background: $success;
+    color: white;
+}
+.title{
+    font-size: 26;
+    text-align: center;
+    color: rgb(41, 66, 95);
+    font-weight: bold;
+}
+.drawer-container{
+    background: linear-gradient(140deg, rgb(73, 73, 105), black);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20;
+}
