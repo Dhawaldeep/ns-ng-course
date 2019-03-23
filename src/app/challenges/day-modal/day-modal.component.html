@@ -1,5 +1,6 @@
+<!-- <Label [text]="loadedDate | date"></Label> -->
+<!-- <Button text="Completed" class="btn btn-success btn-rounded" (tap)="onHandleInput('complete')"></Button>
+    <Button text="Failed" class="btn btn-failure btn-rounded" (tap)="onHandleInput('fail')"></Button> -->
 <FlexboxLayout>
-    <Label [text]="loadedDate | date"></Label>
-    <Button text="Completed" class="btn btn-success btn-rounded" (tap)="onHandleInput('complete')"></Button>
-    <Button text="Failed" class="btn btn-failure btn-rounded" (tap)="onHandleInput('fail')"></Button>
+    <ns-challenge-actions (actionSelect)="onHandleInput($event)"></ns-challenge-actions>
 </FlexboxLayout>

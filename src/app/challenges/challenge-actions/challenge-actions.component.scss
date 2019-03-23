@@ -1,7 +1,10 @@
 /* Add mobile styles for the component here.  */
 FlexboxLayout{
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: white;
+    flex-direction: column;
+}
+
+.btn{
+    width: 300;
 }

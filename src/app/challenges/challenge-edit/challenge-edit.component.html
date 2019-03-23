@@ -1,8 +1,19 @@
 <ns-action-bar [title]="isCreating?'Replace Challenge':'Edit Challenge'" [hasMenu]="false"></ns-action-bar>
 <StackLayout>
-    <FlexboxLayout justifyContent= "center">
+    <FlexboxLayout justifyContent="flex-start" flexDirection="column" alignItems="center" class="form">
+        <StackLayout class="input-field">
+            <Label text="Title" class="label"></Label>
+            <TextField class="input"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label text="Descriptiom" class="label"></Label>
+            <TextField class="input"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+        <Button class="btn btn-primary btn-rounded-lg" text="Submit"></Button>
         <!-- <TextField class="text-input" hint="Challenge Title"  [(ngModel)]="challengeDescription"></TextField>
         <Button class="btn" (tap)="onAddChallenge()" text="Add Challenge"></Button> -->
-        <Label class="title" text="The Edit Page"></Label>
+        <!-- <Label class="title" text="The Edit Page"></Label> -->
     </FlexboxLayout>
 </StackLayout>

@@ -6,6 +6,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { ChallengesRoutingModule } from "./challenges-routing.module";
 import { SharedModule } from "../shared/shared.module";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
+import { ChallengeActionsModule } from "./challenge-actions/challenge-actions.module";
 
 
 
@@ -14,7 +15,8 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
         NativeScriptCommonModule,
         NativeScriptFormsModule,
         ChallengesRoutingModule,
-        SharedModule
+        SharedModule,
+        ChallengeActionsModule
     ],
     declarations: [
         CurrentChallengeComponent,

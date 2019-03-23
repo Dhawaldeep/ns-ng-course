@@ -1,4 +1,7 @@
 <ns-action-bar title="Today's Challenge" [showBackButton] = "false" [hasMenu]="true"></ns-action-bar>
-<StackLayout>
-    <Label class="h4" text="Today"></Label>
-</StackLayout>
+<!-- <FlexboxLayout justifyContent="center" flexDirection="column" alignItems="center">
+    <Button text="Complete" class="btn btn-success"></Button>
+    <Button text="Failed" class="btn btn-failure"></Button>
+    <Button text="Reset" class="btn btn-neutral"></Button>
+</FlexboxLayout> -->
+<ns-challenge-actions cancelText="Reset" (actionSelect)="onHandleInput($event)"></ns-challenge-actions>

@@ -28,11 +28,31 @@ ActionBar{
     background: $success;
     color: white;
 }
-.title{
-    font-size: 26;
+.btn-primary{
+    background: $primary;
+}
+.btn-neutral{
+    background: gray;
+    color: white;
+}
+.form{
+    justify-content: flex-start;
+    flex-direction: column; 
+    align-items: center;
+}
+// .title{
+//     font-size: 26;
+//     text-align: center;
+//     color: #29425f;
+//     font-weight: bold;
+// }
+.h2{
+    color: #29425f;
     text-align: center;
-    color: rgb(41, 66, 95);
-    font-weight: bold;
+}
+.body{
+    color: #29425f;
+    text-align: center;
 }
 .drawer-container{
     background: linear-gradient(140deg, rgb(73, 73, 105), black);
