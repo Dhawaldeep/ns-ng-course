@@ -1,9 +1,9 @@
 <ns-action-bar [title]="'Current Challenge'">
     <ActionItem ios.position="right" android.position="actionBar">
-        <Label text="Edit" (tap)="onEdit()"></Label>
+        <Label text="&#xf044;" android:class="fa actions p-x-5" ios:class="fa p-x-5" (tap)="onEdit()"></Label>
     </ActionItem>
     <ActionItem ios.position="right" android.position="actionBar">
-        <Label text="Replace" (tap)="onReplace()"></Label>
+        <Label text="&#xf0fe;" android:class="fa actions p-x-5" ios:class="fa p-x-5" (tap)="onReplace()"></Label>
     </ActionItem>
 </ns-action-bar>
 <ScrollView>

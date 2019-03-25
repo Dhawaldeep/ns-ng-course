@@ -49,6 +49,7 @@ ActionBar{
 .h2{
     color: #29425f;
     text-align: center;
+    font-family: 'Oswald', 'Oswald-Regular', 'Oswald-Bold';
 }
 .body{
     color: #29425f;
@@ -60,4 +61,20 @@ ActionBar{
     justify-content: center;
     align-items: center;
     padding: 20;
+}
+.fa{
+    font-family: 'FontAwesome','Font-Awesome';
+}
+.actions{
+    font-size: 20;
+}
+.form{
+    .input-field{
+        .label{
+            font-weight: bold;
+            font-size: 15;
+            font-family: 'Oswald', 'Oswald-Regular', 'Oswald-Bold';
+            color: $primary;
+        }
+    }
 }

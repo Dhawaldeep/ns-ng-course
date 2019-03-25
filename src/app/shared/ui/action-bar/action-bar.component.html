@@ -2,7 +2,7 @@
     <NavigationButton (tap)="onBack()" *ngIf="canGoBack" text="Back" android.systemIcon= "ic_menu_back"></NavigationButton>
     <NavigationButton *ngIf="android && hasMenu" (tap)="onToggleMenu()" icon="res://menu_black"></NavigationButton>
     <ActionItem (tap)="onToggleMenu()" *ngIf="!android && hasMenu" ios.position="left">
-        <Label text="MENU"></Label>
+        <Label text="&#xf0c9;" class="fa"></Label>
     </ActionItem>
     <ng-content></ng-content>
 </ActionBar>
