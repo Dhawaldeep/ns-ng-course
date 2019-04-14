@@ -17,9 +17,10 @@ export class CurrentChallengeComponent implements OnInit{
     days: {date: number, dayInWeek: number}[] = [];
     private currentMonth: number;
     private currentYear: number;
+    todayDate = new Date().getDate()
 
     constructor(private router: RouterExtensions, private modalDialog: ModalDialogService, private vcRef: ViewContainerRef, private uIService: UIService){
-
+        console.log(this.todayDate);
     }
 
     ngOnInit(){
@@ -53,7 +54,7 @@ export class CurrentChallengeComponent implements OnInit{
 
     onChangeStatus(){
         this.modalDialog.showModal(DayModalComponent, {
-            fullscreen: true, 
+            fullscreen: true,
             viewContainerRef: this.uIService.getVCRef()?this.uIService.getVCRef(): this.vcRef,
             context: { date: new Date()}
         }).then(action=>{

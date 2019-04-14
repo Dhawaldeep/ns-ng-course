@@ -8,7 +8,7 @@
 </ns-action-bar>
 <ScrollView>
     <FlexboxLayout class="page">
-        <!-- <Label class="title" 
+        <!-- <Label class="title"
         [text]="currentChallenge"></Label>
         <Button text="Open" class="btn" (tap)="onChangeStatus()"></Button> -->
         <!-- <ScrollView> -->
@@ -21,7 +21,7 @@
             <StackLayout>
                 <GridLayout rows="auto,*,*,*,*,*,*" columns="*,*,*,*,*,*,*">
                     <Label class="text-center week-day-label" *ngFor="let weekDay of weekDays; let i=index" [text]="weekDay" row="0" [col]="i"></Label>
-                    <FlexboxLayout class="day not-settable" *ngFor="let day of days; let i = index;" [row]="getRow(i,day)" [col]="day.dayInWeek">
+                    <FlexboxLayout class="day" [ngClass]="day.date !== todayDate? not-settable: null" *ngFor="let day of days; let i = index;" [row]="getRow(i,day)" [col]="day.dayInWeek">
                         <Label (tap)="onChangeStatus()" [text]="day.date"></Label>
                     </FlexboxLayout>
                 </GridLayout>

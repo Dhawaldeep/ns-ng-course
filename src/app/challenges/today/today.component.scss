@@ -8,3 +8,10 @@ FlexboxLayout{
 .btn{
     width: 300;
 }
+
+GridLayout{
+    background-image: url("res://summit");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

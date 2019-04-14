@@ -13,7 +13,7 @@ export class ChallengeEditComponent implements OnInit{
 
   isCreating: boolean = true;
 
-  constructor(private pageRoute: PageRoute){}
+  constructor(private pageRoute: PageRoute, private router: RouterExtensions){}
 
   ngOnInit(){
     this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
@@ -30,5 +30,10 @@ export class ChallengeEditComponent implements OnInit{
 
   onAddChallenge(){
     this.input.emit(this.challengeDescription)
+  }
+
+  onSubmit(title: string, description: string){
+    console.log(title,description)
+    this.router.backToPreviousPage();
   }
 }

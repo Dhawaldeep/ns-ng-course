@@ -10,7 +10,7 @@ import { RouterExtensions } from "nativescript-angular/router";
     moduleId: module.id,
     templateUrl: "./app.component.html"
 })
-export class AppComponent implements OnInit, AfterViewInit, OnDestroy { 
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent
     enteredChallenge: string
     private drawerSub: Subscription;
