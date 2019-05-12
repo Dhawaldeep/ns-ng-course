@@ -1,9 +1,12 @@
-import { Component, Input, ViewContainerRef, OnInit } from "@angular/core";
+import { Component, Input, ViewContainerRef, OnInit, OnDestroy } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 
 import {ModalDialogService} from "nativescript-angular/modal-dialog"
 import { DayModalComponent } from "../day-modal/day-modal.component";
 import { UIService } from "../../shared/ui/ui.service";
+import { ChallengService } from "../challenge.service";
+import { Challenge } from "../challenge.model";
+import { Subscription } from "rxjs";
 
 @Component({
     selector: "ns-current-challenge",
@@ -11,35 +14,34 @@ import { UIService } from "../../shared/ui/ui.service";
     templateUrl: "./current-challenge.component.html",
     styleUrls: ["./_current-challenge.common.scss"]
 })
-export class CurrentChallengeComponent implements OnInit{
+export class CurrentChallengeComponent implements OnInit, OnDestroy{
     @Input() currentChallenge: string = "The Current Challenge";
     weekDays= ['S','M','T','W','T','F','S'];
     days: {date: number, dayInWeek: number}[] = [];
-    private currentMonth: number;
-    private currentYear: number;
+    currentChallengeData: Challenge
+    curChallengeSub: Subscription
     todayDate = new Date().getDate()
 
-    constructor(private router: RouterExtensions, private modalDialog: ModalDialogService, private vcRef: ViewContainerRef, private uIService: UIService){
+    constructor(private router: RouterExtensions, private modalDialog: ModalDialogService, private vcRef: ViewContainerRef, private uIService: UIService, private challengeService: ChallengService){
         console.log(this.todayDate);
     }
 
     ngOnInit(){
-        this.currentYear = new Date().getFullYear();
-        this.currentMonth = new Date().getMonth();
-        const noOfDays = new Date(this.currentYear, this.currentMonth+1, 0).getDate();
+        this.curChallengeSub = this.challengeService.currentChallenge.subscribe(challenge=>{
+            this.currentChallengeData = challenge
+        })
+    }
 
-        for (let i = 1; i < noOfDays+1; i++) {
-            const dayInWeek = new Date(this.currentYear, this.currentMonth, i).getDay();
-            this.days.push({date: i, dayInWeek})
+    ngOnDestroy(){
+        if(this.curChallengeSub){
+            this.curChallengeSub.unsubscribe()
         }
-
-        console.log(this.days);
     }
 
     getRow(index: number, day:{date: number, dayInWeek: number}){
         const startRow = 1;
         const weekRow = Math.floor(index/7);
-        const firstWeekDayofMonth = new Date(this.currentYear, this.currentMonth, 1).getDay();
+        const firstWeekDayofMonth = new Date(this.currentChallengeData.year, this.currentChallengeData.month, 1).getDay();
         const irregularRow = day.dayInWeek < firstWeekDayofMonth ? 1 : 0;
         return startRow+weekRow+irregularRow;
     }

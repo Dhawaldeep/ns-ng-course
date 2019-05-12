@@ -12,16 +12,20 @@
         [text]="currentChallenge"></Label>
         <Button text="Open" class="btn" (tap)="onChangeStatus()"></Button> -->
         <!-- <ScrollView> -->
-            <GridLayout rows="auto,auto" columns="auto">
+            <StackLayout *ngIf="!currentChallengeData">
+                <Label text="No Challenge found!!"></Label>
+                <Button class="btn btn-primary" text="Create One!" (tap)="onReplace()"></Button>
+            </StackLayout>
+            <GridLayout *ngIf="currentChallengeData" rows="auto,auto" columns="auto">
             <!-- <StackLayout> -->
                 <Label row="0" col="0" class="h2" text="Take a walk everyday"></Label>
                 <Label row="1" col="0" class="body" text="Walk for atleast 20 minutes on everyday of the week"></Label>
             <!-- </StackLayout> -->
             </GridLayout>
-            <StackLayout>
+            <StackLayout *ngIf="currentChallengeData">
                 <GridLayout rows="auto,*,*,*,*,*,*" columns="*,*,*,*,*,*,*">
                     <Label class="text-center week-day-label" *ngFor="let weekDay of weekDays; let i=index" [text]="weekDay" row="0" [col]="i"></Label>
-                    <FlexboxLayout class="day" [ngClass]="day.date !== todayDate? not-settable: null" *ngFor="let day of days; let i = index;" [row]="getRow(i,day)" [col]="day.dayInWeek">
+                    <FlexboxLayout class="day" [ngClass]="day.date !== todayDate? not-settable: null" *ngFor="let day of currentChallengeData.days; let i = index;" [row]="getRow(i,day)" [col]="day.dayInWeek">
                         <Label (tap)="onChangeStatus()" [text]="day.date"></Label>
                     </FlexboxLayout>
                 </GridLayout>

@@ -3,12 +3,12 @@
     <FlexboxLayout justifyContent="flex-start" flexDirection="column" alignItems="center" class="form">
         <StackLayout class="input-field">
             <Label text="Title" class="label" [ngClass]="{invalid: !titleCtrl.valid && titleCtrl.touched}"></Label>
-            <TextField required returnType="next" ngModel #titleCtrl="ngModel" class="input"></TextField>
+            <TextField required returnKeyType="next" ngModel #titleCtrl="ngModel" class="input"></TextField>
             <Label *ngIf="!titleCtrl.valid && titleCtrl.touched" text="Please enter a valid title"></Label>
         </StackLayout>
         <StackLayout class="input-field">
             <Label text="Description" [ngClass]="{invalid: !desc.valid && desc.touched}" class="label"></Label>
-            <TextView returnKey="done" ngModel #desc="ngModel" required class="input"></TextView>
+            <TextView returnKeyType="done" ngModel #desc="ngModel" required class="input"></TextView>
             <Label *ngIf="!desc.valid && desc.touched" text="Please fill the description"></Label>
         </StackLayout>
         <Button class="btn btn-primary btn-rounded-lg" (tap)="onSubmit(titleCtrl.value, desc.value)" [isEnabled]="titleCtrl.valid && desc.valid" text="Submit"></Button>

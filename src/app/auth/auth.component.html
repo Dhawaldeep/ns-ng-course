@@ -1,14 +1,15 @@
-<ns-action-bar title="LogIn" [showBackButton]="false" [hasMenu]="false"></ns-action-bar>
-<StackLayout class="form">
+<ns-action-bar [title]="isLogin? 'LogIn': 'Sign Up'" [showBackButton]="false" [hasMenu]="false"></ns-action-bar>
+<StackLayout [formGroup]="form" class="form">
     <StackLayout class="input-field">
-        <Label text="Email ID" class="label" [ngClass]="{invalid: false}"></Label>
-        <TextField required returnType="next" class="input"></TextField>
-        <Label *ngIf="false" text="Please enter a valid email"></Label>
+        <Label text="Email ID" class="label" [ngClass]="{invalid: !isEmailValid}"></Label>
+        <TextField #emailEl (returnPress)="onDone()" formControlName="email" required returnKeyType="next" keyboardType="email" [autocorrect]="false" autocapitalizationType="none" class="input"></TextField>
+        <Label *ngIf="!isEmailValid" text="Please enter a valid email"></Label>
     </StackLayout>
     <StackLayout class="input-field">
-        <Label text="Password" [ngClass]="{invalid: false}" class="label"></Label>
-        <TextField returnKey="done" hint="Must have 6+ characters" required class="input"></TextField>
-        <Label *ngIf="false" text="Invalid Password"></Label>
+        <Label text="Password" [ngClass]="{invalid: !isPasswordValid}" class="label"></Label>
+        <TextField #passwordEl (returnPress)="onDone()" formControlName="password" returnKeyType="done" hint="Must have 6+ characters" [autocorrect]="false" autocapitalizationType="none" [secure]="true" required class="input"></TextField>
+        <Label *ngIf="!isPasswordValid" text="Invalid Password"></Label>
     </StackLayout>
-    <Button text="Log In" class="btn btn-primary btn-rounded-lg" (tap)="onSubmit()"></Button>
+    <Button (tap)="onSwitch()" class="btn btn-flat" [text]="isLogin? 'SignUp Instead' : 'SignIn Instead'"></Button>
+    <Button text="Log In" [isEnabled]="form.valid" class="btn btn-primary btn-rounded-lg" (tap)="onSubmit()"></Button>
 </StackLayout>

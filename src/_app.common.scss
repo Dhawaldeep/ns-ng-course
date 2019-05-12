@@ -89,10 +89,11 @@ ActionBar{
             border-bottom-color: #29425f;
             border-bottom-width: 1;
         }
+        .input.ng-invalid.ng-touched{
+            border-bottom-color: red;
+            color: red;
+        }
     }
 }
 
-.ng-invalid.ng-touched{
-    border-bottom-color: red;
-    color: red;
-}
+
