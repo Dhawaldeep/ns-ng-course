@@ -1,9 +1,22 @@
 <ns-action-bar [title]="'Current Challenge'">
-    <ActionItem ios.position="right" android.position="actionBar">
-        <Label text="&#xf044;" android:class="fa actions p-x-5" ios:class="fa p-x-5" (tap)="onEdit()"></Label>
+    <ActionItem
+        ios.position="right"
+        android.position="actionBar">
+        <Label
+            text="&#xf044;"
+            android:class="fa actions p-x-5"
+            ios:class="fa p-x-5" (tap)="onEdit()"
+        ></Label>
     </ActionItem>
-    <ActionItem ios.position="right" android.position="actionBar">
-        <Label text="&#xf0fe;" android:class="fa actions p-x-5" ios:class="fa p-x-5" (tap)="onReplace()"></Label>
+    <ActionItem
+        ios.position="right"
+        android.position="actionBar">
+        <Label
+            text="&#xf0fe;"
+            android:class="fa actions p-x-5"
+            ios:class="fa p-x-5"
+            (tap)="onReplace()"
+        ></Label>
     </ActionItem>
 </ns-action-bar>
 <ScrollView>
@@ -14,19 +27,51 @@
         <!-- <ScrollView> -->
             <StackLayout *ngIf="!currentChallengeData">
                 <Label text="No Challenge found!!"></Label>
-                <Button class="btn btn-primary" text="Create One!" (tap)="onReplace()"></Button>
+                <Button
+                    class="btn btn-primary"
+                    text="Create One!"
+                    (tap)="onReplace()"></Button>
             </StackLayout>
-            <GridLayout *ngIf="currentChallengeData" rows="auto,auto" columns="auto">
+            <GridLayout
+                *ngIf="currentChallengeData"
+                rows="auto,auto"
+                columns="auto">
             <!-- <StackLayout> -->
-                <Label row="0" col="0" class="h2" text="Take a walk everyday"></Label>
-                <Label row="1" col="0" class="body" text="Walk for atleast 20 minutes on everyday of the week"></Label>
+                <Label
+                    row="0"
+                    col="0"
+                    class="h2"
+                    [text]="currentChallengeData.title"
+                ></Label>
+                <Label
+                    row="1"
+                    col="0"
+                    class="body"
+                    [text]="currentChallengeData.description"
+                ></Label>
             <!-- </StackLayout> -->
             </GridLayout>
             <StackLayout *ngIf="currentChallengeData">
-                <GridLayout rows="auto,*,*,*,*,*,*" columns="*,*,*,*,*,*,*">
-                    <Label class="text-center week-day-label" *ngFor="let weekDay of weekDays; let i=index" [text]="weekDay" row="0" [col]="i"></Label>
-                    <FlexboxLayout class="day" [ngClass]="day.date !== todayDate? not-settable: null" *ngFor="let day of currentChallengeData.days; let i = index;" [row]="getRow(i,day)" [col]="day.dayInWeek">
-                        <Label (tap)="onChangeStatus()" [text]="day.date"></Label>
+                <GridLayout
+                    rows="auto,*,*,*,*,*,*"
+                    columns="*,*,*,*,*,*,*">
+                    <Label
+                        class="text-center week-day-label"
+                        *ngFor="let weekDay of weekDays; let i=index"
+                        [text]="weekDay"
+                        row="0"
+                        [col]="i"
+                    ></Label>
+                    <FlexboxLayout
+                        class="day"
+                        [ngClass]="day.date !== todayDate? not-settable: null"
+                        *ngFor="let day of currentChallengeData.days; let i = index;"
+                        [row]="getRow(i,day)"
+                        [col]="day.dayInWeek">
+                        <Label
+                        (tap)="onChangeStatus()"
+                        [text]="day.dayInMonth"
+                    ></Label>
                     </FlexboxLayout>
                 </GridLayout>
             </StackLayout>

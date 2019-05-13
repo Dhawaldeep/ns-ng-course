@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { RouterExtensions, PageRoute } from 'nativescript-angular/router';
+import { ChallengService } from '../challenge.service';
 
 @Component({
   selector: 'ns-challenge-edit',
@@ -13,7 +14,7 @@ export class ChallengeEditComponent implements OnInit{
 
   isCreating: boolean = true;
 
-  constructor(private pageRoute: PageRoute, private router: RouterExtensions){}
+  constructor(private pageRoute: PageRoute, private router: RouterExtensions, private challengeService: ChallengService){}
 
   ngOnInit(){
     this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
@@ -34,6 +35,7 @@ export class ChallengeEditComponent implements OnInit{
 
   onSubmit(title: string, description: string){
     console.log(title,description)
+    this.challengeService.createNewChallenge(title, description)
     this.router.backToPreviousPage();
   }
 }

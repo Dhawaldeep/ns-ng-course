@@ -1,9 +1,17 @@
-<ns-action-bar title="Today's Challenge" [showBackButton] = "false" [hasMenu]="true"></ns-action-bar>
+<ns-action-bar
+    title="Today's Challenge"
+    [showBackButton] = "false"
+    [hasMenu]="true"
+></ns-action-bar>
 <!-- <FlexboxLayout justifyContent="center" flexDirection="column" alignItems="center">
     <Button text="Complete" class="btn btn-success"></Button>
     <Button text="Failed" class="btn btn-failure"></Button>
     <Button text="Reset" class="btn btn-neutral"></Button>
 </FlexboxLayout> -->
-<GridLayout>
-    <ns-challenge-actions cancelText="Reset" (actionSelect)="onHandleInput($event)"></ns-challenge-actions>
+<GridLayout *ngIf="!currentDay">
+    <Label [text]="currentDay.data | date"></Label>
+    <ns-challenge-actions
+        cancelText="Reset"
+        (actionSelect)="onHandleInput($event)"
+    ></ns-challenge-actions>
 </GridLayout>
